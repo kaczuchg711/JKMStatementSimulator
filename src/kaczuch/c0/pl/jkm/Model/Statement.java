@@ -1,6 +1,9 @@
 package kaczuch.c0.pl.jkm.Model;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -21,11 +24,32 @@ public class Statement
         {
             File f = new File("src/kaczuch/c0/pl/jkm/data/sentences");
             Scanner scanner = new Scanner(f);
-            String line = scanner.nextLine();
+            String line;
+            String[] lineAsTable;
+            String[] parts = new String[6];
+            Random rand = new Random();
+            int randNumber;
 
-            String[] stringTable = line.split("1.");
+            for (int i = 0; i < 6; ++i)
+            {
+                line = scanner.nextLine();
+                lineAsTable = line.split(i + 1 + ".");
+                randNumber = rand.nextInt(6);
+                while (randNumber == 0)
+                    randNumber = rand.nextInt(6);
 
-            stringTable[1] = stringTable[1].replaceAll("  ", "");
+                parts[i] = lineAsTable[randNumber].replaceAll("  ", "");
+                System.out.println(randNumber + " " + parts[i]);
+            }
+
+            ArrayList<String> out = new ArrayList<>();
+
+            for (String s : parts)
+            {
+                out.add(s);
+            }
+
+            System.out.println(out);
 
 
         }

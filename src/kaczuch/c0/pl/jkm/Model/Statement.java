@@ -1,10 +1,7 @@
 package kaczuch.c0.pl.jkm.Model;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * create statement from file
@@ -18,7 +15,7 @@ public class Statement
         return content;
     }
 
-    public void rand_Statement()
+    public String rand_Statement()
     {
         try
         {
@@ -30,6 +27,7 @@ public class Statement
             Random rand = new Random();
             int randNumber;
 
+//          reading
             for (int i = 0; i < 6; ++i)
             {
                 line = scanner.nextLine();
@@ -39,24 +37,34 @@ public class Statement
                     randNumber = rand.nextInt(6);
 
                 parts[i] = lineAsTable[randNumber].replaceAll("  ", "");
-                System.out.println(randNumber + " " + parts[i]);
             }
 
-            ArrayList<String> out = new ArrayList<>();
+            StringBuilder sb = new StringBuilder();
+            StringJoiner sj = new StringJoiner(" ");
 
+//          corect string
+            int i = 0;
             for (String s : parts)
             {
-                out.add(s);
+                sb.append(s);
+                if (sb.charAt(sb.length() - 1) == ' ')
+                {
+                    sb.deleteCharAt(sb.length() - 1);
+
+                }
+                sj.add(sb.toString());
+                sb.delete(0, sb.length());
+                i++;
             }
 
-            System.out.println(out);
-
-
+            return sj.toString() + ".";
         }
         catch (Exception e)
         {
             System.out.println(e);
         }
+
+        return "empty";
 
     }
 

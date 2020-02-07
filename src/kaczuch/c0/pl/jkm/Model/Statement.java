@@ -6,6 +6,7 @@ import java.util.*;
 /**
  * create statement from file
  */
+
 public class Statement
 {
     String content;

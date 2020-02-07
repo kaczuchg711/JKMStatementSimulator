@@ -2,6 +2,8 @@ package kaczuch.c0.pl.jkm.View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class StatementView extends JFrame
 {
@@ -15,7 +17,7 @@ public class StatementView extends JFrame
         this.setTitle("JKM Statement");
         this.setLayout(new FlowLayout());
 //        this.getContentPane().setBackground(new Color(panel.getBackground().getRGB()));
-        this.getContentPane().setBackground(new Color(255255255));
+        this.getContentPane().setBackground(new Color(0xFFFFFF));
 
 
         this.add(panel);
@@ -26,12 +28,25 @@ public class StatementView extends JFrame
     {
         return panel;
     }
+
+    public void addStatementListener(ActionListener listenForRand)
+    {
+        this.getPanel().getBp().getButtonsList().get(0).addActionListener(listenForRand);
+    }
+
+    public void setStatement(String statement)
+    {
+        this.panel.setText(statement);
+    }
 }
 
 class StatementMainPanel extends JPanel
 {
     private final static int WIDTH = 600;
     private final static int HEIGHT = 300;
+
+    private ButtonPanel bp;
+    private JTextField tf;
 
     public StatementMainPanel()
     {
@@ -40,20 +55,44 @@ class StatementMainPanel extends JPanel
                         "wylosuj",
                 };
 
-        ButtonPanel bp = new ButtonPanel(names);
-        this.setLayout(new GridLayout(2,1));
+        this.bp = new ButtonPanel(names);
+        this.setLayout(new GridLayout(2, 1));
         this.add(bp);
-        this.add(new JTextField("Ja chcę powiedzieć jedną rzecz ci wszyscy (tfu!) geje z premedytacją próbują skłócić Polskę z Rosją bo tak się uczy w państwowej szkole tak samo zresztą jak za Hitlera."));
+        this.tf = new JTextField("",120);
+        this.add(tf);
+    }
+
+    public void setText(String text)
+    {
+        this.tf.setText(text);
+    }
+
+    public ButtonPanel getBp()
+    {
+        return bp;
     }
 }
 
 class ButtonPanel extends JPanel
 {
+    private ArrayList<JButton> buttonsList;
+
     public ButtonPanel(String[] names)
     {
+        this.buttonsList = new ArrayList<JButton>();
+
         for (String s : names)
         {
-            add(new JButton(s));
+            buttonsList.add(new JButton(s));
         }
+        for (JButton b : this.buttonsList)
+        {
+            this.add(b);
+        }
+    }
+
+    public ArrayList<JButton> getButtonsList()
+    {
+        return buttonsList;
     }
 }

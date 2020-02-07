@@ -58,7 +58,8 @@ class StatementMainPanel extends JPanel
         this.bp = new ButtonPanel(names);
         this.setLayout(new GridLayout(2, 1));
         this.add(bp);
-        this.tf = new JTextField("",120);
+        this.tf = new JTextField("",145);
+        this.tf.setHorizontalAlignment(JTextField.CENTER);
         this.add(tf);
     }
 
@@ -72,6 +73,7 @@ class StatementMainPanel extends JPanel
         return bp;
     }
 }
+
 
 class ButtonPanel extends JPanel
 {

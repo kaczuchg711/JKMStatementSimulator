@@ -1,4 +1,4 @@
-package kaczuch.c0.pl.jkm.View;
+package pl.c0.kaczuch.jkm.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +42,7 @@ public class StatementView extends JFrame
 
 class StatementMainPanel extends JPanel
 {
-    private final static int WIDTH = 600;
+    private final static int WIDTH = 500;
     private final static int HEIGHT = 300;
 
     private ButtonPanel bp;

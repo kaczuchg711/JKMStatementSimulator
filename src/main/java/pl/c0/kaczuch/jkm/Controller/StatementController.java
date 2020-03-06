@@ -1,7 +1,7 @@
-package kaczuch.c0.pl.jkm.Controller;
+package pl.c0.kaczuch.jkm.Controller;
 
-import kaczuch.c0.pl.jkm.Model.Statement;
-import kaczuch.c0.pl.jkm.View.StatementView;
+import pl.c0.kaczuch.jkm.Model.Statement;
+import pl.c0.kaczuch.jkm.View.StatementView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

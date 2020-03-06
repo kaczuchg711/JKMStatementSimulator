@@ -1,7 +1,11 @@
-package kaczuch.c0.pl.jkm.Model;
+package pl.c0.kaczuch.jkm.Model;
 
-import java.io.File;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.StringJoiner;
 
 /**
  * create statement from file
@@ -20,8 +24,16 @@ public class Statement
     {
         try
         {
-            File f = new File("src/kaczuch/c0/pl/jkm/data/sentences");
-            Scanner scanner = new Scanner(f);
+//            "pl/c0/kaczuch/jkm/data/sentences"
+            InputStream in = getClass().getResourceAsStream("data/sentences");
+            if(in == null)
+            {
+                System.out.println("in is not ok");
+            }
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+
+            Scanner scanner = new Scanner(reader);
             String line;
             String[] lineAsTable;
             String[] parts = new String[6];
@@ -63,6 +75,7 @@ public class Statement
         catch (Exception e)
         {
             System.out.println(e);
+            System.exit(4);
         }
 
         return "empty";

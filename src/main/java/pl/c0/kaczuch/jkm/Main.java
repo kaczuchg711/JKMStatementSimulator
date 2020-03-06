@@ -1,10 +1,10 @@
-package kaczuch.c0.pl.jkm;
+package pl.c0.kaczuch.jkm;
 
-import kaczuch.c0.pl.jkm.Controller.StatementController;
-import kaczuch.c0.pl.jkm.Model.Statement;
-import kaczuch.c0.pl.jkm.View.StatementView;
+import pl.c0.kaczuch.jkm.Controller.StatementController;
+import pl.c0.kaczuch.jkm.Model.Statement;
+import pl.c0.kaczuch.jkm.View.StatementView;
 
-import java.util.concurrent.locks.StampedLock;
+
 
 public class Main
 {
